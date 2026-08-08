@@ -17,6 +17,10 @@ const CANVAS_HEIGHT = (canvas.height = 400);
 
 const spriteWidth = 60;
 const spriteHeight = 60;
+let frameX = 0; //animate horizontally
+let frameY = 0; //animate vertically
+let gameFrame = 0; //
+const staggerFrames = 10; //slowdown animation by the amount
 
 //bring image into javascript project
 const playerImage = new Image();
@@ -32,8 +36,8 @@ function animate() {
   //ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
   context.drawImage(
     playerImage,
-    2 * spriteWidth,
-    0,
+    frameX * spriteWidth,
+    frameY * spriteHeight,
     spriteWidth,
     spriteHeight,
     0,
@@ -41,8 +45,13 @@ function animate() {
     CANVAS_WIDTH,
     CANVAS_HEIGHT,
   );
+  if (gameFrame % staggerFrames == 0) {
+    //cycle throught the frame horizontally
+    if (frameX < 4) frameX++;
+    else frameX = 0;
+  }
+  gameFrame++;
   //it will keep on running the same animate() - recursive function without and end
   requestAnimationFrame(animate);
 }
 animate(); // animate the same rectangle over and over
-console.log(context);
