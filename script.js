@@ -15,6 +15,9 @@ According to the HTMLCanvasElement specification, getContext():
 const CANVAS_WIDTH = (canvas.width = 400);
 const CANVAS_HEIGHT = (canvas.height = 400);
 
+const spriteWidth = 375;
+const spriteHeight = 375;
+
 //bring image into javascript project
 const playerImage = new Image();
 //use the Image (constructor) to store the image sheet for animation
@@ -27,7 +30,7 @@ function animate() {
   //context.fillRect(100, 50, 100, 100); // everytime the recursive function runs, then it increases the x by 1.
   // use the draw image method  -
   //ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
-  context.drawImage(playerImage, 0, 0, 350, 300, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  context.drawImage(playerImage, 0, 0, spriteWidth, spriteHeight, 20, 20, CANVAS_WIDTH, CANVAS_HEIGHT);
   //it will keep on running the same animate() - recursive function without and end
   requestAnimationFrame(animate);
 }
