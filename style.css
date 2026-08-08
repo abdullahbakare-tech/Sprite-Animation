@@ -15,6 +15,6 @@
   left: 50%;
   /* transform shifts the element back by half it width and then half its height, which then centers the object in the block */
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 190px;
+  height: 190px;
 }
