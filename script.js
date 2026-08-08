@@ -1,1 +1,1 @@
-const canvas = 
+const canvas = document.getElementById('canvas')
